@@ -1,66 +1,86 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Mission Control</title>
-
-<style>
-body{
-background:#000;
-color:#00ff66;
-font-family:monospace;
-padding:40px;
-}
-
-h1{
-font-size:48px;
-}
-
-.clock{
-font-size:36px;
-margin-top:20px;
-}
-
-.task{
-font-size:28px;
-margin-top:20px;
-color:white;
-}
-
-.next{
-font-size:20px;
-margin-top:10px;
-color:gold;
-}
-</style>
-
-</head>
-
-<body>
-
-<h1>MISSION CONTROL</h1>
-
-<div class="clock" id="clock"></div>
-
-<div class="task" id="task"></div>
-
-<div class="next" id="next"></div>
-
 <script>
 
 function update(){
 
-const now=new Date();
+const now = new Date();
+
+const hh = String(now.getHours()).padStart(2,"0");
+const mm = String(now.getMinutes()).padStart(2,"0");
+
+const time = hh + ":" + mm;
 
 document.getElementById("clock").innerHTML =
 now.toLocaleTimeString();
 
+let task = "Sleep Release";
+let next = "Wake Up 04:00 AM";
+
+if(time >= "04:00" && time < "04:30"){
+    task = "Wake Up & Fajr Prayer";
+    next = "Math Block 1";
+}
+else if(time >= "04:30" && time < "07:30"){
+    task = "Math Block 1";
+    next = "Breakfast";
+}
+else if(time >= "07:30" && time < "08:00"){
+    task = "Breakfast";
+    next = "Math Block 2";
+}
+else if(time >= "08:00" && time < "13:00"){
+    task = "Math Block 2";
+    next = "Dhuhr Prayer & Lunch";
+}
+else if(time >= "13:00" && time < "14:00"){
+    task = "Dhuhr Prayer & Lunch";
+    next = "Python Deep Dive";
+}
+else if(time >= "14:00" && time < "15:30"){
+    task = "Python Deep Dive";
+    next = "Stats & AI";
+}
+else if(time >= "15:30" && time < "16:30"){
+    task = "Stats & AI";
+    next = "Asr Prayer & Tea";
+}
+else if(time >= "16:30" && time < "17:15"){
+    task = "Asr Prayer & Tea";
+    next = "Python Part 2A";
+}
+else if(time >= "17:15" && time < "18:20"){
+    task = "Python Part 2A";
+    next = "Maghrib Prayer";
+}
+else if(time >= "18:20" && time < "18:30"){
+    task = "Maghrib Prayer";
+    next = "Dinner";
+}
+else if(time >= "18:30" && time < "18:50"){
+    task = "Dinner";
+    next = "Python Part 2B";
+}
+else if(time >= "18:50" && time < "19:45"){
+    task = "Python Part 2B";
+    next = "Stats & AI Part 2";
+}
+else if(time >= "19:45" && time < "21:00"){
+    task = "Stats & AI Part 2";
+    next = "Isha Prayer";
+}
+else if(time >= "21:00" && time < "21:15"){
+    task = "Isha Prayer";
+    next = "Daily Review";
+}
+else if(time >= "21:15" && time < "21:45"){
+    task = "Daily Review";
+    next = "Sleep Release";
+}
+
 document.getElementById("task").innerHTML =
-"CURRENT TASK: Sleep Release";
+"CURRENT TASK: " + task;
 
 document.getElementById("next").innerHTML =
-"NEXT TASK: Wake Up 04:00 AM";
+"NEXT TASK: " + next;
 
 }
 
@@ -68,6 +88,3 @@ setInterval(update,1000);
 update();
 
 </script>
-
-</body>
-</html>
