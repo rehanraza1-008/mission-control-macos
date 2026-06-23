@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mission Control</title>
+
+<style>
+body{
+background:#000;
+color:#00ff66;
+font-family:monospace;
+padding:40px;
+}
+
+h1{
+font-size:48px;
+}
+
+.clock{
+font-size:36px;
+margin-top:20px;
+}
+
+.task{
+font-size:28px;
+margin-top:20px;
+color:white;
+}
+
+.next{
+font-size:20px;
+margin-top:10px;
+color:gold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>MISSION CONTROL</h1>
+
+<div class="clock" id="clock"></div>
+
+<div class="task" id="task"></div>
+
+<div class="next" id="next"></div>
+
+<script>
+
+function update(){
+
+const now=new Date();
+
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString();
+
+document.getElementById("task").innerHTML =
+"CURRENT TASK: Sleep Release";
+
+document.getElementById("next").innerHTML =
+"NEXT TASK: Wake Up 04:00 AM";
+
+}
+
+setInterval(update,1000);
+update();
+
+</script>
+
+</body>
+</html>
