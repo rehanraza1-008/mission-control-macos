@@ -102,7 +102,22 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
----
+## 📂 Project Structure
+
+
+mission-control-macos
+│
+├── timetable.html      → Live dashboard
+├── init.lua            → Hammerspoon voice automation
+├── alarm.sh            → Schedule transition alerts
+├── nag.sh              → 5-minute accountability reminders
+├── setup.sh            → Installation script
+│
+└── LaunchAgents
+      ├── com.commandcentre.alarm.plist
+      └── com.timetable.nag.plist
+```
+
 
 ## 🛠️ Tech Stack
 
